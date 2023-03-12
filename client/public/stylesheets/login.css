@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+}
+
+.form-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    color: white;
+}
+
+.form-container.login {
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    background-position: center;
+}
+
+.form-container .form-elements {
+    background-color: rgb(42, 42, 42, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: column;
+    width: 25%;
+    height: auto;
+    gap: 30px;
+    padding: 15px;
+    border-radius: 25px;
+}
+
+.form-container .form-element {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-container .form-element.forget-me {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.form-container .form-element input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding: 5px 10px;
+    color: white;
+}
+
+.form-container button {
+    border: none;
+    background-color: #00FF00;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 250ms;
+    font-size: 1.2rem;
+}
+
+.form-container button:hover {
+    transform: translateY(2px);
+}
+
+.form-container .form-element input:focus+label,
+.form-container .form-element input:valid+label {
+    top: -15px;
+    font-size: 0.8em;
+}
+
+.form-container .form-element input[type="file"] {
+    cursor: pointer;
+}
+
+.form-container .form-element input[type="file"]+label {
+    top: -15px;
+    font-size: 0.8em;
+}
+
+.form-container .form-element label:not([for="forget-me"]) {
+    position: absolute;
+    transition: all 250ms ease-out;
+    left: 0;
+    top: 0;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 650px) {
+    .form-container .form-elements {
+        width: 96%;
+    }
+}

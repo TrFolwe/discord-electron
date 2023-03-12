@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" href="/public/stylesheets/login.css">
+    <!-- TOAST -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="icon" href="/public/assets/discord-ico.png">
+</head>
+
+<body>
+    <form autocomplete="off" class="form-container login" onsubmit="return false;">
+        <h2>Giriş Yap</h2>
+        <div class="form-elements">
+            <div class="form-element">
+                <input type="text" name="username" required>
+                <label for="username">Kullanıcı adı</label>
+            </div>
+            <div class="form-element">
+                <input type="password" name="password" required>
+                <label for="username">Şifre</label>
+            </div>
+            <div class="form-element">
+                <input type="file" name="profileImage" required>
+                <label for="profileImage">Profil resmi</label>
+            </div>
+            <div class="form-element forget-me">
+                <div class="forget-me">
+                    <label for="forget-me">Beni Hatırla</label>
+                    <input type="checkbox" name="forget-me">
+                </div>
+                <a href="/register">Kayıt Ol</a>
+            </div>
+            <button type="submit">Giriş Yap</button>
+        </div>
+    </form>
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <!-- TOAST -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="/public/script/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord</title>
+    <link rel="stylesheet" href="/public/stylesheets/discord.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <link rel="icon" href="/public/assets/discord-ico.png">
+</head>
+
+<body>
+    <div class="discord">
+        <nav class="discord-navbar">
+            <div class="server-img">
+                <img src="public/assets/server1icon.webp" alt="">
+            </div>
+            <div class="server-img">
+                <img src="public/assets/server2icon.webp" alt="">
+            </div>
+            <div class="server-img">
+                <img src="public/assets/server3icon.webp" alt="">
+            </div>
+        </nav>
+        <div class="chat-container">
+            <h3 class="server-connection" style="text-align: center;">Sunucuya bağlanılıyor...</h3>
+            <button class="log-out">Çıkış Yap</button>
+            <div class="message-wrapper">
+                
+            </div>
+        </div>
+        <form autocomplete="off" onsubmit="return false;" class="message-form">
+            <input disabled required name="message" type="text" placeholder="@Global kullanıcısına mesaj gönder">
+            <button style="display: none;" type="submit"></button>
+        </form>
+    </div>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="/public/script/discord.js"></script>
+    <script>
+        document.querySelector(".message-form").addEventListener("submit", e => {
+            e.preventDefault();
+            const formData = $(e.target).serializeArray()[0];
+            const message = formData.value.trim();
+            e.target.querySelector("input").value = '';
+            document.querySelector(".chat-container .message-wrapper").innerHTML += `<div class="message">
+        <img src="./public/assets/user-profile.webp" class="profile-img">
+        <div class="message-container">
+            <div class="message-header">
+                <h4><%= session.username %></h4>
+                <span style="color: #aaa;" class="time">bugün saat ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
+            </div>
+            <p class="message-content">${message}</p>
+        </div>
+    </div>`;
+            socket.send(document.querySelector(".chat-container .message-wrapper").innerHTML);
+        });
+    </script>
+</body>
+
+</html>
